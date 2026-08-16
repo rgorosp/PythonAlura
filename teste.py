@@ -1,16 +1,25 @@
 """
 TESTE
 """
-import os 
-tupla1 = ('Emerson',50,1.75)
-tupla2 = ('Livia',18,1.65)
-tupla3 = ('Leila',44,1.60)
+lista = ['Emerson', 'Leila', 'Livia']
 
-lista = [tupla1, tupla2, tupla3]
-
-for tupla in lista:
-    nome, idade, altura = tupla
-    print(f'Nome: {nome} - Idade: {idade} - Altura: {altura}')
-
-print('\nTermino do Teste de Programa')
-os._exit(0)
+print(lista)
+print('O que deseja fazer? (a)lterar nome, (r)emover último nome, (n)ada')
+entrada = input()
+if entrada == 'a':
+    nome = input('Digite o nome a ser alterado: ')
+    if nome in lista:
+        novo_nome = input('Digite o novo nome: ')
+        indice = lista.index(nome)
+        lista[indice] = novo_nome
+        print(f'Nome alterado. Lista atual: {lista}')
+    else:
+        print("Nome não existe!!!")
+elif entrada == 'r':
+    if lista:
+        removido = lista.pop()
+        print(f'{removido} removido. Lista atual: {lista}')
+    else:
+        print("Lista já está vazia!!!")
+else:
+    exit()
